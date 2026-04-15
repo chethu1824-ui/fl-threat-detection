@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Cyber Threat Detection — FL{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" stroke="#00e5ff" stroke-width="1.5" fill="none"/>
+      <circle cx="11" cy="11" r="3" fill="#00e5ff"/>
+    </svg>
+    <span>CyberShield <span class="accent">FL</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/" class="{% if request.path=='/' %}active{% endif %}">Home</a></li>
+    <li><a href="/train" class="{% if request.path=='/train' %}active{% endif %}">Train</a></li>
+    <li><a href="/detect" class="{% if request.path=='/detect' %}active{% endif %}">Detect</a></li>
+    <li><a href="/dashboard" class="{% if request.path=='/dashboard' %}active{% endif %}">Dashboard</a></li>
+  </ul>
+  <div class="nav-status">
+    <span class="dot-live"></span>
+    <span style="font-size:12px;color:#00e5ff">LIVE</span>
+  </div>
+</nav>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
